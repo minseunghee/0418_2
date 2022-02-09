@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.board.mij.mapper.FileMapper">
+
+	<select id="fileList" resultType="com.board.mij.domain.FileVO">
+		SELECT
+		*
+		FROM Files
+		WHERE 
+			Files.boardId = #{boardId}
+	</select>
+
+	<insert id="fileRegister" parameterType="java.util.List">
+		INSERT INTO
+		Files (originalFileName, savedFileName, boardId)
+		VALUES
+		<foreach collection="list" item="file" separator="," >
+			( #{file.originalFileName}, #{file.savedFileName}, #{file.boardId})
+		</foreach>
+	</insert>
+
+	<select id="fileDetail" parameterType="int" resultType="com.board.mij.domain.FileVO">
+		SELECT
+		*
+		FROM Files
+		WHERE fileId = #{fileId}
+	</select>
+	
+	<delete id="fileDelete" parameterType="java.util.List">
+		DELETE FROM
+		Files
+		WHERE 
+		<foreach collection="list" item="file" separator="or" >
+			fileId = #{file.fileId}
+		</foreach>
+	</delete>
+	
+	<select id="imgFileList" resultType="string">
+		SELECT
+		savedFileName
+		FROM Files
+		WHERE 
+			Files.boardId = 0
+	</select>
+</mapper>

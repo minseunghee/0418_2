@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.board.mij.mapper.UserMapper">
+
+	<insert id="userRegister" parameterType="com.board.mij.domain.UserVO">
+		INSERT INTO
+		Users (username, password, salt)
+		VALUES ( #{username}, #{password}, #{salt})
+	</insert>
+	
+	<select id="userGetSalt" parameterType="string" resultType="string">
+		SELECT salt
+		FROM Users
+		WHERE username = #{username}
+	</select>
+	
+	<select id="userLogin" parameterType="com.board.mij.domain.UserVO" resultType="string">
+		SELECT username
+		FROM Users
+		WHERE password = #{password}
+	</select>
+
+	<select id="userDuplicateCheck" parameterType="string" resultType="com.board.mij.domain.UserVO">
+		SELECT username
+		FROM Users
+		WHERE username = #{username}
+	</select>
+	
+</mapper>
