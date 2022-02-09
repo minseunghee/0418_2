@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.board.mij.domain.FileVO;
 
 
-@Repository("com.board.kbj.mapper.FileMapper")
+@Repository("com.board.mij.mapper.FileMapper")
 public interface FileMapper {
 
 	// 특정 글에 해당하는 File List 가져오기

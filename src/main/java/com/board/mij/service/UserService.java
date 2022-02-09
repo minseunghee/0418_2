@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import com.board.mij.domain.UserVO;
 import com.board.mij.mapper.UserMapper;
 
-@Service("com.board.kbj.service.UserService")
+@Service("com.board.mij.service.UserService")
 public class UserService {
 
-	@Resource(name = "com.board.kbj.mapper.UserMapper")
+	@Resource(name = "com.board.mij.mapper.UserMapper")
 	UserMapper mUserMapper;
 	
 	public int userRegister(UserVO user) throws Exception {

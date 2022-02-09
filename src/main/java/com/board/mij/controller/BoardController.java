@@ -27,10 +27,10 @@ import com.board.mij.utility.CommonUtility;
 @Controller
 public class BoardController {
 
-	@Resource(name = "com.board.kbj.service.BoardService")
+	@Resource(name = "com.board.mij.service.BoardService")
 	BoardService mBoardService;
 	
-	@Resource(name = "com.board.kbj.service.FileService")
+	@Resource(name = "com.board.mij.service.FileService")
 	FileService mFileService;
 	
 	// application.properties에서 파일이 첨부될 위치 정보 가져오기

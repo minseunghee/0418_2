@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.board.mij.domain.BoardVO;
 
 
-@Repository("com.board.kbj.mapper.BoardMapper")
+@Repository("com.board.mij.mapper.BoardMapper")
 public interface BoardMapper {
 
 	// Board List 가져오기

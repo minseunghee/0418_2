@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import com.board.mij.domain.BoardVO;
 import com.board.mij.mapper.BoardMapper;
 
-@Service("com.board.kbj.service.BoardService")
+@Service("com.board.mij.service.BoardService")
 public class BoardService {
 
-	@Resource(name = "com.board.kbj.mapper.BoardMapper")
+	@Resource(name = "com.board.mij.mapper.BoardMapper")
 	BoardMapper mBoardMapper;
 	
 	public List<BoardVO> boardList(int startBoardNum, int boardCountInPage) throws Exception {

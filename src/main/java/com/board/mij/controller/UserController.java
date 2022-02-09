@@ -17,7 +17,7 @@ import com.board.mij.service.UserService;
 @Controller
 public class UserController {
 
-	@Resource(name = "com.board.kbj.service.UserService")
+	@Resource(name = "com.board.mij.service.UserService")
 	UserService mUserService;
 
 	// Move to User Join 회원가입 페이지로 이동

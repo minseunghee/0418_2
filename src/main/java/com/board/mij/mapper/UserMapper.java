@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.board.mij.domain.UserVO;
 
 
-@Repository("com.board.kbj.mapper.UserMapper")
+@Repository("com.board.mij.mapper.UserMapper")
 public interface UserMapper {
 
 	// User Register 회원가입 하기

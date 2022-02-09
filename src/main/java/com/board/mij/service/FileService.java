@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import com.board.mij.domain.FileVO;
 import com.board.mij.mapper.FileMapper;
 
-@Service("com.board.kbj.service.FileService")
+@Service("com.board.mij.service.FileService")
 public class FileService {
 
-	@Resource(name = "com.board.kbj.mapper.FileMapper")
+	@Resource(name = "com.board.mij.mapper.FileMapper")
 	FileMapper mFileMapper;
 	
 	public List<FileVO> fileList(int boardId) throws Exception {
