@@ -8,6 +8,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Board List Page</title>
 </head>
+<style>
+    p {
+        border-style: double;
+        width: 400px;
+        height: 400px;
+        color : red;
+    }
+    s{
+    color : yellow;
+    }
+
+</style>
 <body>
 
 	<jsp:include page="./partials/header.jsp" />
@@ -15,23 +27,27 @@
 	<div class="container">
 		<button class="btn btn-primary"
 			onclick="location.href='/boards/register'">글쓰기</button>
-		<table class="table table-hover">
+		<%--<table class="table table-hover">--%>
 			<tr>
 				<th>No</th>
-				<th>제목</th>
 				<th>작성자</th>
+				<th>제목</th>
 				<th>작성 날짜</th>
 			</tr>
-			<c:forEach var="list" items="${boardList}">
-				<tr onclick="location.href='/boards/${list.boardId}'"
+			<c:forEach var="list2" items="${boardList}">
+				<tr onclick="location.href='/boards/${list2.board_id}'"
 					style="cursor: pointer">
-					<td>${list.boardId}</td>
-					<td>${list.boardWriter}</td>
-					<td>${list.boardTitle}</td>
-					<td>${list.boardWriteTime}</td>
+					<p>
+                       <s>No</s><td> ${list2.board_id}<br>
+                       작성자<td> ${list2.user_id}<br>
+                       제목 <td> ${list2.BOARD_TITLE}<br>
+                       작성 ${list2.DT_RGST}
+                    </p>
 				</tr>
 			</c:forEach>
-		</table>
+
+
+
 
 		<div style="position: relative">
 			<ul style="text-align: center;">
@@ -41,6 +57,14 @@
 			</ul>
 		</div>
 	</div>
+
+	<div style="text-align:center;">
+        <hr>
+        <p>111<br>222
+        </p>
+
+        <hr>
+    </div>
 	
 	<div style="text-align:center;">
 		<br /><br /><br />

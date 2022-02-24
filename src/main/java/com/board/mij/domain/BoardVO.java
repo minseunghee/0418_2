@@ -1,42 +1,43 @@
 package com.board.mij.domain;
 
+import org.joda.time.DateTime;
+
 public class BoardVO {
 
-	private int boardId; // 글 ID
-	private String boardTitle; // 글 제목
+	private int board_Id; // 글 ID
+	private String BOARD_TITLE; // 글 제목
 	private String boardContent; // 글 내용
-	private String boardWriteTime; // 글 작성 날짜
-	private String boardWriter; //글 작성자
+	private String DT_RGST; // 글 작성 날짜
+	private String user_id; //글 작성자
 	
-	public String getBoardWriter() {
-		return boardWriter;
+	public String getuser_id() {
+		return user_id;
 	}
-	public void setBoardWriter(String boardWriter) {
-		this.boardWriter = boardWriter;
+	public void setuser_id(String user_id) {
+		this.user_id = user_id;
 	}
-	public int getBoardId() {
-		return boardId;
+
+	public int getboard_id() {return board_Id;}
+	public void setboard_Id(int Board_Id) {this.board_Id = Board_Id;}
+
+	public String getBOARD_TITLE() {
+		return BOARD_TITLE;
 	}
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
+	public void setBOARD_TITLE(String BOARD_TITLE) {
+		this.BOARD_TITLE = BOARD_TITLE;
 	}
-	public String getBoardTitle() {
-		return boardTitle;
-	}
-	public void setBoardTitle(String boardTitle) {
-		this.boardTitle = boardTitle;
-	}
+
 	public String getBoardContent() {
 		return boardContent;
 	}
 	public void setBoardContent(String boardContent) {
 		this.boardContent = boardContent;
 	}
-	public String getBoardWriteTime() {
-		return boardWriteTime;
+	public String getDT_RGST() {
+		return DT_RGST;
 	}
-	public void setBoardWriteTime(String boardWriteTime) {
-		this.boardWriteTime = boardWriteTime;
+	public void setDT_RGST(String DT_RGST) {
+		this.DT_RGST = DT_RGST;
 	}
 	
 }

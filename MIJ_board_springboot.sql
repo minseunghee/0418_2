@@ -1,11 +1,11 @@
 
 CREATE TABLE Boards (
-	boardId INT NOT NULL AUTO_INCREMENT,
-	boardTitle VARCHAR(255) ,
+	BOARD_ID INT NOT NULL AUTO_INCREMENT,
+	BOARDTITLE VARCHAR(255) ,
 	boardContent text,
-    boardWriteTime datetime,
-    boardWriter VARCHAR(255),
-	PRIMARY KEY (boardId)
+    DT_RGST datetime,
+    user_id VARCHAR(255),
+	PRIMARY KEY (BOARD_ID)
 );
 CREATE TABLE Files (
 	fileId INT NOT NULL AUTO_INCREMENT,

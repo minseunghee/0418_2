@@ -73,9 +73,9 @@ public class BoardController {
 		
 		// 1. 글을 저장
 		BoardVO board = new BoardVO();
-		board.setBoardTitle(req.getParameter("title"));
+		board.setBOARD_TITLE(req.getParameter("title"));
 		board.setBoardContent(req.getParameter("content"));
-		board.setBoardWriter(req.getParameter("writer"));
+		board.setuser_id(req.getParameter("writer"));
 		mBoardService.boardRegister(board); //DB에 글 저장
 
 		// 파일 저장소 위치 존재 확인 후 없으면 생성.
@@ -97,7 +97,7 @@ public class BoardController {
 			
 			// 저장된 파일의 정보를 리스트로 보관
 			FileVO fileInfo = new FileVO();
-			fileInfo.setBoardId(board.getBoardId());
+			fileInfo.setBoardId(board.getboard_id());
 			fileInfo.setOriginalFileName(originalFileName);
 			fileInfo.setSavedFileName(uploadedFileName);
 			fileList.add(fileInfo);
@@ -107,7 +107,7 @@ public class BoardController {
 		if(fileList.size()>0) {
 			mFileService.fileRegister(fileList);
 		}
-		return "redirect:/boards/"+board.getBoardId();
+		return "redirect:/boards/"+board.getboard_id();
 	}
 	
 	// Board Detail 게시판 글 읽기
@@ -129,7 +129,7 @@ public class BoardController {
 		BoardVO board = mBoardService.boardDetail(boardId);
 		
 		//3. 글 삭제 + 연결된 파일 삭제
-		if( board.getBoardId()>0) {
+		if( board.getboard_id()>0) {
 			mBoardService.boardDelete(boardId);// DB에 저장된 글 삭제
 			
 			// 서버에 저장된 실제 파일 삭제

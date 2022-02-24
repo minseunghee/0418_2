@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT
 		*
 		FROM Boards
-		ORDER BY boardId DESC
+		ORDER BY BOARD_ID DESC
 		LIMIT #{startBoardNum}, #{boardCountInPage}
 	</select>
 	
