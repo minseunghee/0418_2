@@ -7,15 +7,14 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import com.mysql.cj.xdevapi.JsonArray;
+import com.mysql.cj.xdevapi.JsonValue;
+import com.sun.xml.internal.ws.org.objectweb.asm.Label;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.board.mij.domain.BoardVO;
@@ -23,6 +22,26 @@ import com.board.mij.domain.FileVO;
 import com.board.mij.service.BoardService;
 import com.board.mij.service.FileService;
 import com.board.mij.utility.CommonUtility;
+
+
+import java.util.*;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import org.springframework.web.bind.annotation.RequestBody;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+
+
+
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 @Controller
 public class BoardController {
@@ -43,21 +62,34 @@ public class BoardController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	private String boardList(@RequestParam(required = false) String message, @RequestParam(required = false) String pageNum, Model model) throws Exception {
 
+
 		int numberPageNum = CommonUtility.getPageNumber(pageNum); // 전달 받은 pageNum의 값의 유효성 확인 후 숫자로 변환
 		int startBoardNum = (numberPageNum-1)*boardCountInPage; // 선택된 페이지에  보여줄 글의 시작점
-		
-		List<BoardVO> boardList = mBoardService.boardList(startBoardNum, boardCountInPage); // PageNum에 해당하는 Board 보여줄 리스트 구하기 
-		model.addAttribute("boardList", boardList);
-		
-		int boardTotalCount = mBoardService.boardTotalCount(); // 페이징 처리 중, 존재 가능한 페이지 번호를 구하기 위한, 글의 Total Count 구하기
-		model.addAttribute("pageCount", Math.ceil(((double)boardTotalCount)/((double)boardCountInPage)));
-		
-		List<String> imgList = mFileService.imgFileList(); // 단독으로 첨부된 이미지 파일 리스트 구하기 
-		model.addAttribute("imgList", imgList);
-		
+
+		List<BoardVO> boardList = mBoardService.boardList(startBoardNum, boardCountInPage); // PageNum에 해당하는 Board 보여줄 리스트 구하기
+		//model.addAttribute("boardList", boardList);
+
+		JsonArray jsonArray = new JsonArray();
+		JSONObject jsonObject = new JSONObject();
+		List<String> list = new ArrayList<String>();
+		for (BoardVO vo : boardList) {
+
+			jsonObject.put("board_id", vo.getboard_id());
+			jsonObject.put("BOARD_TITLE", vo.getBOARD_TITLE());
+			//list.add(jsonObject.toString());
+		}
+
+		//obj.add("data", jsonArray);
+		model.addAttribute("boardList", jsonObject.toString());
+
+
 		// 로그인 및 무언가의 이유로 여기로 Redirect 될 때, 메세지가 있으면 같이 보내주자
 		if(message != null)
 			model.addAttribute("message", message);
+
+		LOGGER.info("Hello world!");
+		LOGGER.info(jsonObject.toString());
+
 		return "boardList";
 	}
 	

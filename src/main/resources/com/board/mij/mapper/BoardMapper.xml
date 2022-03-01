@@ -6,11 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.board.mij.mapper.BoardMapper">
 
 	<select id="boardList" parameterType="int" resultType="com.board.mij.domain.BoardVO">
-		SELECT
-		*
-		FROM Boards
+
+
+		SELECT *
+		  FROM Boards
 		ORDER BY BOARD_ID DESC
 		LIMIT #{startBoardNum}, #{boardCountInPage}
+
 	</select>
 	
 	<select id="boardTotalCount" resultType="java.lang.Integer">
