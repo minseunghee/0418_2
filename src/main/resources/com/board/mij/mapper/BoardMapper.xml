@@ -6,10 +6,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.board.mij.mapper.BoardMapper">
 
 	<select id="boardList" parameterType="int" resultType="com.board.mij.domain.BoardVO">
-
-
-		SELECT *
-		  FROM Boards
+		SELECT
+			BOARD_ID,
+			USER_ID,
+			BOARD_TITLE,
+			BOARD_CONTENT,
+			DT_RGST,
+			DT_CHG,
+			DEL_YN,
+			HIDE_YN,
+			COUNT_HIT
+		FROM Boards
 		ORDER BY BOARD_ID DESC
 		LIMIT #{startBoardNum}, #{boardCountInPage}
 
