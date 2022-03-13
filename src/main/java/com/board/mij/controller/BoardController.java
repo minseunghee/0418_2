@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mysql.cj.xdevapi.JsonArray;
 import com.mysql.cj.xdevapi.JsonValue;
-import com.sun.xml.internal.ws.org.objectweb.asm.Label;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -40,12 +39,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
-
-
-
-
-
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 @Controller
 public class BoardController {
@@ -93,8 +86,6 @@ public class BoardController {
 
 		// 로그인 및 무언가의 이유로 여기로 Redirect 될 때, 메세지가 있으면 같이 보내주자
 
-		LOGGER.info("Hello world!");
-		LOGGER.info(jsonObject.toString());
 
 		return "boardList";
 	}
@@ -132,8 +123,6 @@ public class BoardController {
 
 		// 로그인 및 무언가의 이유로 여기로 Redirect 될 때, 메세지가 있으면 같이 보내주자
 
-		LOGGER.info("Hello world!");
-		LOGGER.info(jsonObject.toString());
 		//String result = jsonObject.toString();
 		return list.toString();
 	}
