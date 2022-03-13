@@ -37,7 +37,7 @@
 
     .user{
         font-size : 20px;
-        margin: 17px;
+        margin: 15px;
         float: left;
     }
 
@@ -78,6 +78,7 @@
 
     #commentin::-webkit-input-placeholder {
         font-size : 10px;
+        float:
     }
 
 
@@ -85,25 +86,6 @@
 </style>
 <body>
 	<jsp:include page="./partials/header.jsp" />
-
-  <div class="content">
-    <img id="userImg" src="hansohee.PNG">
-    <p class ="user"> xeesoxee</p>
-    <img id="userPhoto" src="travle.PNG">
-    <img id="likeIcon" src="love.png">
-    <img id="comment" src="comment.png">
-    <p class ="like"> 좋아요 29개</p>
-    <p class ="user2"> xeesoxee </p>
-    <p class ="userContent">&nbsp 날이 너무 좋아요!</p>
-    <p style="color:slategray">댓글 5개 모두보기</p>
-
-    <div class ="comment2">
-    <input id ="commentin" type="text" placeholder=" 댓글 달기...">
-    </div>
-  </div>
-
-
-
 
 	<script type="text/javascript">
 
@@ -116,6 +98,7 @@
                 var jsonData = { // Body에 첨부할 json 데이터
                         pageNum : 1
                     };
+
 
                 $.ajax({
 
@@ -134,18 +117,44 @@
                         console.log("민승희111");
                          console.log(data);
 
+                         var tmp1 = '<div class="content">';
+                         var tmp2 = '<img id="userImg" src="hansohee.PNG">';
+                         var tmp3 = '<img id="userPhoto" src="travle.PNG">';
+                         var tmp4 = '<p class ="user">';
+                         var tmp5 = '<img id="likeIcon" src="love.png">';
+                         var tmp6 = '<img id="comment" src="comment.png">';
+                         var tmp7 = '<p class ="like"> 좋아요 29개</p>';
+                         var tmp8 = '<p class ="user2">';
+                         var tmp9 = '<p class ="userContent">&nbsp';
+                         var tmp10 = '<p style="color:slategray">댓글 5개 모두보기</p>';
+                         var tmp11 = '<div class ="comment2">';
+                         var tmp12 = '<input id ="commentin" type="text" placeholder=" 댓글 달기...">';
+                         var tmp13 = '</div>';
+
                         for (var i = 0; i < data.length; i++) {
                          //document.write("<h3>");
-                         document.write("<p>");
-                         document.write("번호 : " + data[i].BOARD_ID + "<br>");
-                         document.write("타이틀 : " + data[i].BOARD_TITLE + "<br>");
-                         document.write("작성자 : " + data[i].USER_ID + "<br>");
-                         document.write("작성날짜 : " + data[i].DT_RGST + "<br>");
-                         document.write("내용 : " + data[i].BOARD_CONTENT);
-                         document.write("</p>");
-                         document.write("<hr>");
-                         //document.write("</h3>");
+                         document.write(tmp1);
+                         document.write(tmp2);
+                         document.write(tmp4 +  data[i].USER_ID+"</p>");
+                         document.write(tmp3);
+
+                         document.write(tmp5);
+                         document.write(tmp6);
+                         //document.write(tmp4 +  data[i].USER_ID);
+                         document.write(tmp7);
+                         document.write(tmp8 + data[i].USER_ID);
+                         document.write(tmp9 + data[i].BOARD_CONTENT);
+                         document.write(tmp10);
+
+                         document.write(tmp11);
+                         document.write(tmp12);
+                         document.write(tmp13);
+
+
+                         document.write("</div>");
+
                          }
+
 
                     },
 
@@ -159,7 +168,17 @@
                     console.log(data.user_id);
                     }
                 });
+
+
     </script>
+
+
+
+
+
+
+
+
 </body>
 </html>
 
