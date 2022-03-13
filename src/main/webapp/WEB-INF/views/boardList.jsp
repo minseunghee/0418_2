@@ -137,7 +137,7 @@
                          var tmp7 = '<p class ="like"> 좋아요 29개</p>';
                          var tmp8 = '<p class ="user2">';
                          var tmp9 = '<p class ="userContent">&nbsp';
-                         var tmp10 = '<p style="color:slategray">댓글 5개 모두보기</p>';
+                         var tmp10 = '<p style="color:slategray">';
                          var tmp11 = '<div class ="comment2">';
                          var tmp12 = '<input id ="commentin" type="text" placeholder=" 댓글 달기...">';
                          var tmp13 = '<div class ="user3">';
@@ -147,6 +147,7 @@
 
                         for (var i = 0; i < data.length; i++) {
                              //document.write("<h3>");
+                             var tt = data[i].REPLY.split('|');
                              document.write(tmp1);
                              document.write(tmp2);
                              document.write(tmp4 +  data[i].USER_ID+"</p>");
@@ -158,10 +159,17 @@
                              document.write(tmp7);
                              document.write(tmp8 + data[i].USER_ID);
                              document.write(tmp9 + data[i].BOARD_CONTENT);
-                             document.write(tmp10);
 
+                             var replycnt;
+                             if (data[i].REPLY == 0){
+                               replycnt = 0
+                             }
+                             else{
+                                replycnt = tt.length
+                             }
+                             document.write(tmp10 + "댓글"+replycnt+"개 모두보기</p>");
                              //
-                             var tt = data[i].REPLY.split('|');
+
 
                              //alert(data[i].REPLY); //xxnly^어디예요|mydaily^팔로우 합니당
                              //alert(tt[0]);  //xxnly^어디예요
