@@ -7,17 +7,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="boardList" parameterType="int" resultType="com.board.mij.domain.BoardVO">
 		SELECT
-			BOARD_ID,
-			USER_ID,
-			BOARD_TITLE,
-			BOARD_CONTENT,
-			DT_RGST,
-			DT_CHG,
-			DEL_YN,
-			HIDE_YN,
-			COUNT_HIT
-		FROM Boards
-		ORDER BY BOARD_ID DESC
+		a.BOARD_ID,
+		a.USER_ID,
+		a.BOARD_TITLE,
+		a.BOARD_CONTENT,
+		a.DT_RGST,
+		a.DT_CHG,
+		a.DEL_YN,
+		a.HIDE_YN,
+		a.COUNT_HIT,
+		IFNULL(group_concat(CONCAT(ID_RGST, '^' ,COMMENT_CONTENT) SEPARATOR '|'),'') as REPLY
+		FROM Boards a LEFT OUTER join Boards_Comments b
+		ON a.BOARD_ID = b.BOARD_ID
+		GROUP BY a.BOARD_ID
 		LIMIT #{startBoardNum}, #{boardCountInPage}
 
 	</select>

@@ -13,11 +13,15 @@
     color : yellow;
     }
 
+    b{
+        font-weight: bold;
+    }
+
     .content{
         margin: 0 auto;
         height: 600px;
         width: 500px;
-        margin-top : 100px;
+        margin-top : 50px;
         border-left : 1px solid black;
         border-right: 1px solid black;
         border-top : 1px solid black;
@@ -65,10 +69,17 @@
         float: left;
         font-weight: bold;
     }
+    .user3{
+            float: left;
+            font-weight: bold;
+        }
 
     .userContent{
         margin-left : 30px;
     }
+    .userContent2{
+            margin-left : 70px;
+        }
 
     .comment2{
         width: 99%;
@@ -129,31 +140,47 @@
                          var tmp10 = '<p style="color:slategray">댓글 5개 모두보기</p>';
                          var tmp11 = '<div class ="comment2">';
                          var tmp12 = '<input id ="commentin" type="text" placeholder=" 댓글 달기...">';
-                         var tmp13 = '</div>';
+                         var tmp13 = '<div class ="user3">';
+                         var tmp14 = '<p class ="userContent2">&nbsp';
+
+
 
                         for (var i = 0; i < data.length; i++) {
-                         //document.write("<h3>");
-                         document.write(tmp1);
-                         document.write(tmp2);
-                         document.write(tmp4 +  data[i].USER_ID+"</p>");
-                         document.write(tmp3);
+                             //document.write("<h3>");
+                             document.write(tmp1);
+                             document.write(tmp2);
+                             document.write(tmp4 +  data[i].USER_ID+"</p>");
+                             document.write(tmp3);
 
-                         document.write(tmp5);
-                         document.write(tmp6);
-                         //document.write(tmp4 +  data[i].USER_ID);
-                         document.write(tmp7);
-                         document.write(tmp8 + data[i].USER_ID);
-                         document.write(tmp9 + data[i].BOARD_CONTENT);
-                         document.write(tmp10);
+                             document.write(tmp5);
+                             document.write(tmp6);
+                             //document.write(tmp4 +  data[i].USER_ID);
+                             document.write(tmp7);
+                             document.write(tmp8 + data[i].USER_ID);
+                             document.write(tmp9 + data[i].BOARD_CONTENT);
+                             document.write(tmp10);
 
-                         document.write(tmp11);
-                         document.write(tmp12);
-                         document.write(tmp13);
+                             //
+                             var tt = data[i].REPLY.split('|');
+
+                             //alert(data[i].REPLY); //xxnly^어디예요|mydaily^팔로우 합니당
+                             //alert(tt[0]);  //xxnly^어디예요
+                             //alert(tt[1]);  // mydaily^팔로우 합니당
+                             var ttt;
 
 
-                         document.write("</div>");
+                             for(var j in tt) {
+                                ttt = tt[j].toString().split('^'); //ttt[0] 작성자 , ttt[1] 댓글내용  ttt[0] = xxnly ttt[1] = 어디예요
+                                //document.write(tmp13);
+                                if (ttt[0] != "") { //작성자가 존재 = 댓글이 있다
+                                    document.write(tmp14+ '<b>' + ttt[0] + '</b>' + '&nbsp' + ttt[1] + '</p>');
+                                }
+                             }
 
-                         }
+
+                             document.write("</div>");
+
+                        }
 
 
                     },

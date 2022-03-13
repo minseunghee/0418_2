@@ -16,7 +16,15 @@ public class BoardVO {
 	private Date DT_RGST;
 	//private java.util.Date DT_RGST; // 글 작성 날짜
 	private String USER_ID; //글 작성자
-	
+	private String REPLY; //댓글
+
+	public String getREPLY() {
+		return REPLY;
+	}
+	public void setREPLY(String REPLY) {
+		this.REPLY = REPLY;
+	}
+
 	public String getUSER_ID() {
 		return USER_ID;
 	}

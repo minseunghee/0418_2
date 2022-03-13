@@ -115,6 +115,7 @@ public class BoardController {
 			jsonObject.put("BOARD_CONTENT", vo.getBOARD_CONTENT());
 			jsonObject.put("DT_RGST", simpleDateFormat.format(vo.getDT_RGST()).toString() );
 			jsonObject.put("USER_ID", vo.getUSER_ID());
+			jsonObject.put("REPLY", vo.getREPLY());
 			list.add(jsonObject.toString());
 		}
 
