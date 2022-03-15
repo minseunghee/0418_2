@@ -7,94 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Board List Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<style>
-    s{
-    color : yellow;
-    }
 
-    b{
-        font-weight: bold;
-    }
-
-    .content{
-        margin: 0 auto;
-        height: 600px;
-        width: 500px;
-        margin-top : 50px;
-        border-left : 1px solid black;
-        border-right: 1px solid black;
-        border-top : 1px solid black;
-        border-bottom: 1px solid black;
-        border-radius: 4px;
-        font-family: 'Hind Madurai', sans-serif;
-        }
-
-    #userImg{
-        border-radius: 100px;
-        width: 50px;
-        height: 50px;
-        border : 2px solid red;
-        margin: 10px;
-        float: left;
-    }
-
-    .user{
-        font-size : 20px;
-        margin: 15px;
-        float: left;
-    }
-
-    #userPhoto{
-        width:100%;
-    }
-
-    #likeIcon{
-        margin: 10px;
-        width:5%;
-    }
-
-    .like{
-        margin-left : 10px;
-    }
-
-    #comment{
-         margin: 10px;
-         width:4.5%;
-    }
-
-    .user2{
-        font-size : 15px;
-        margin-left: 10px;
-        float: left;
-        font-weight: bold;
-    }
-    .user3{
-            float: left;
-            font-weight: bold;
-        }
-
-    .userContent{
-        margin-left : 30px;
-    }
-    .userContent2{
-            margin-left : 70px;
-        }
-
-    .comment2{
-        width: 99%;
-        margin: 20px;
-        float: left;
-
-
-    #commentin::-webkit-input-placeholder {
-        font-size : 10px;
-        float:
-    }
-
-
-
-</style>
 <body>
 	<jsp:include page="./partials/header.jsp" />
 
