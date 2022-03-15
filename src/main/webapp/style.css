@@ -63,19 +63,26 @@
     .user3{
             float: left;
             font-weight: bold;
-        }
+    }
 
     .userContent{
         margin-left : 30px;
     }
+
     .userContent2{
-            margin-left : 70px;
-        }
+         margin: 5px;
+    }
+
+    .commentCount{
+         margin-left: 5px;
+         color:slategray;
+    }
 
     .comment2{
         width: 99%;
         margin: 20px;
         float: left;
+     }
 
 
     #commentin::-webkit-input-placeholder {

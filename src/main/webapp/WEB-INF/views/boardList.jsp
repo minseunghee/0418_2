@@ -52,7 +52,7 @@
                          var tmp7 = '<p class ="like"> 좋아요 29개</p>';
                          var tmp8 = '<p class ="user2">';
                          var tmp9 = '<p class ="userContent">&nbsp';
-                         var tmp10 = '<p style="color:slategray">';
+                         var tmp10 = '<p class ="commentCount">';
                          var tmp11 = '<div class ="comment2">';
                          var tmp12 = '<input id ="commentin" type="text" placeholder=" 댓글 달기...">';
                          var tmp13 = '<div class ="user3">';
