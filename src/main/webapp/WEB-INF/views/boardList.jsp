@@ -51,7 +51,7 @@
                          var tmp6 = '<img id="comment" src="comment.png">';
                          var tmp7 = '<p class ="like"> 좋아요 29개</p>';
                          var tmp8 = '<p class ="user2">';
-                         var tmp9 = '<p class ="userContent">&nbsp';
+                         var tmp9 = '<p class ="userContent">';
                          var tmp10 = '<p class ="commentCount">';
                          var tmp11 = '<div class ="comment2">';
                          var tmp12 = '<input id ="commentin" type="text" placeholder=" 댓글 달기...">';
@@ -72,8 +72,8 @@
                              document.write(tmp6);
                              //document.write(tmp4 +  data[i].USER_ID);
                              document.write(tmp7);
-                             document.write(tmp8 + data[i].USER_ID);
-                             document.write(tmp9 + data[i].BOARD_CONTENT);
+                             document.write(tmp8 + "<strong>" +data[i].USER_ID +"</strong>" +  "&nbsp" + data[i].BOARD_CONTENT);
+                             //document.write(tmp9 + data[i].BOARD_CONTENT + '<br>');
 
                              var replycnt;
                              if (data[i].REPLY == 0){

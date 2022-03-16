@@ -57,8 +57,7 @@
     .user2{
         font-size : 15px;
         margin-left: 10px;
-        float: left;
-        font-weight: bold;
+
     }
     .user3{
             float: left;
@@ -66,7 +65,7 @@
     }
 
     .userContent{
-        margin-left : 30px;
+        font-weight: lighter;
     }
 
     .userContent2{
@@ -74,7 +73,7 @@
     }
 
     .commentCount{
-         margin-left: 5px;
+         margin-left: 10px;
          color:slategray;
     }
 
