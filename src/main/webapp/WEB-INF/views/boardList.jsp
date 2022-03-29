@@ -43,6 +43,8 @@
                         console.log("민승희111");
                          console.log(data);
 
+                         var tmp0= '<div class="instagram-logo">';
+                         var tmp01= '<img src="instagram.PNG" id="logo">';
                          var tmp1 = '<div class="content">';
                          var tmp2 = '<img id="userImg" src="hansohee.PNG">';
                          var tmp3 = '<img id="userPhoto" src="travle.PNG">';
@@ -58,7 +60,9 @@
                          var tmp13 = '<div class ="user3">';
                          var tmp14 = '<p class ="userContent2">&nbsp';
 
-
+                        document.write(tmp0);
+                        document.write(tmp01);
+                        document.write("</div>");
 
                         for (var i = 0; i < data.length; i++) {
                              //document.write("<h3>");
@@ -100,7 +104,7 @@
                                 }
                              }
 
-
+                             document.write(tmp12);
                              document.write("</div>");
 
                         }
