@@ -8,19 +8,7 @@
         font-weight: bold;
     }
 
-    .instagram-logo {
-    margin-top : 0px;
-      width: 180px;
-      height: 9px;
-    }
-
-    #logo {
-      position: absolute;
-      width: 150px;
-      height: 70px;
-    }
-
-    .content{
+    .contenttest{
         margin: 0 auto;
         height: 600px;
         width: 500px;
@@ -32,6 +20,16 @@
         border-radius: 4px;
         font-family: 'Hind Madurai', sans-serif;
         }
+
+        .content{
+            margin: 0 auto;
+            height: 600px;
+            width: 500px;
+            margin-top : 50px;
+            border-radius: 4px;
+            border: 1px solid #D8D8D8;
+            font-family: 'Hind Madurai', sans-serif;
+            }
 
     #userImg{
         border-radius: 100px;
@@ -106,4 +104,71 @@
     #commentin::-webkit-input-placeholder {
         font-size : 12px;
         float:
+    }
+
+    .appBarw {
+      background-color: #ffffff;
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    .appBar {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      height: 80px;
+      margin: auto;
+      align-items: center;
+    }
+
+    .instagram-logo {
+      width: 180px;
+      height: 50px;
+    }
+
+    #logo {
+      margin-left : 0px;
+      width: 50px;
+      height: 10px;
+    }
+
+    .appBarMenuDiv {
+      width: 360px;
+    }
+
+    .menuIcon {
+      display: inline-block;
+      justify-content: space-between;
+    }
+
+    .fas.fa-home {
+      font-size: 22px;
+    }
+
+    i.far {
+      font-size: 22px;
+    }
+
+    .appBarMenu {
+      float: right;
+      width: 222px;
+      height: 22px;
+      padding-left: 24px;
+      justify-content: space-between;
+      display: flex;
+    }
+
+    .inputText > input::placeholder {
+      text-align: center;
+      font-weight: 510;
+    }
+
+    .search {
+      outline: none;
+      width: 199px;
+      height: 12px;
+      padding: 7px;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      float: left;
+      background-color: #fafafa;
     }
