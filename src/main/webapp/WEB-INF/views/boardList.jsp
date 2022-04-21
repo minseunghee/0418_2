@@ -30,9 +30,7 @@
     </header>
 </div>
 
-
     <div id="MSH"></div>
-
 
 	<jsp:include page="./partials/header.jsp" />
 	<script type="text/javascript">
@@ -60,98 +58,49 @@
                 success: function(data) {
                     console.log(data);
 
-                     var tmp0= '<div class="instagram-logo">';
-                     var tmp01= '<img src="instagram.PNG" id="logo">';
-                     var tmp1 = '<div class="content">';
-                     var tmp2 = '<img id="userImg" src="hansohee.PNG">';
-                     var tmp3 = '<img id="userPhoto" src="travle.PNG">';
-                     var tmp4 = '<p class ="user">';
-                     var tmp5 = '<img id="likeIcon" src="love.png">';
-                     var tmp6 = '<img id="comment" src="comment.png">';
-                     var tmp7 = '<p class ="like"> 좋아요 29개</p>';
-                     var tmp8 = '<p class ="user2">';
-                     var tmp9 = '<p class ="userContent">';
-                     var tmp10 = '<p class ="commentCount">';
-                     var tmp11 = '<div class ="comment2">';
-                     var tmp12 = '<input id ="commentin" type="text" placeholder=" 댓글 달기...">';
-                     var tmp13 = '<div class ="user3">';
-                     var tmp14 = '<p class ="userContent2">&nbsp';
+                   //첫 번째 매개변수: 객체(data)
+                   //두 번째 매개변수 : 배열의 인덱스(i)와 값(item)
+                   $.each(data, function(i, item){
+                      var usrReply = data[i].REPLY.split('|');   //한 줄에 담은 댓글들을 | 구분자로 분리하여 생성
+                      var replycnt;                              //게시글 댓글 개수
+                      var replyGB;                               //댓글 아이디, 내용을 ^ 구분자로 분리하여 생성
 
+                      if (data[i].REPLY == 0){
+                          replycnt = 0
+                       } else {
+                          replycnt = usrReply.length
+                      }
 
-
-                       $.each(data, function( i, item){
-                          var tt = data[i].REPLY.split('|');
-                          var replycnt;
-                          var ttt;
-
-
-
-                          if (data[i].REPLY == 0){
-                              replycnt = 0
-                           } else{
-                              replycnt = tt.length
+                      var reply = "" ;                          // 댓글
+                      for(var j in usrReply) {
+                          replyGB = usrReply[j].toString().split('^');
+                          if (replyGB[0] != "") {
+                             reply = reply + '<p class ="userContent2">&nbsp' + '<b>' + replyGB[0] + '</b>' + '&nbsp' + replyGB[1] + '</p>';
                           }
+                       }
+                      // 04.19 JQuery
+                      var insContent = '<div class="content">' +
+                                      '<img id="userImg" src="hansohee.PNG">' +
+                                      '<p class ="user">' + data[i].USER_ID + "</p>" +
+                                      '<img id="userPhoto" src="travle.PNG">' +
+                                      '<img id="likeIcon" src="love.png">' +
+                                      '<img id="comment" src="comment.png">' +
+                                      '<p class ="like"> 좋아요 29개 </p>' +
+                                      '<p class ="user2">' +
+                                      "<strong>" +data[i].USER_ID +"</strong>" + "&nbsp" +
+                                       data[i].BOARD_CONTENT +
+                                       '<p class ="commentCount">' +
+                                       "댓글" + replycnt + "개 모두보기</p>" +
+                                       reply +
+                                       '<input id ="commentin" type="text" placeholder=" 댓글 달기...">'
 
+                           $('#MSH').append(insContent);
 
-                          var tmp = "" ;
-                          for(var j in tt) {
-                              ttt = tt[j].toString().split('^');
-                              if (ttt[0] != "") {
-                                 tmp = tmp + tmp14+ '<b>' + ttt[0] + '</b>' + '&nbsp' + ttt[1] + '</p>';
-                              }
-                           }
+                           //var mainContent = $('#MSH').append('<div class="content">');
+                           //$('#mainContent').after('<img id="userImg" src="hansohee.PNG">');
+                           //$('#MSH').append('<img id="userImg" src="hansohee.PNG">');
 
-                           $('#MSH').append(tmp1+tmp2+tmp4 +  data[i].USER_ID+"</p>"+tmp3+tmp5+tmp6+tmp7+tmp8 + "<strong>" +data[i].USER_ID +"</strong>" +  "&nbsp" + data[i].BOARD_CONTENT+tmp10 + "댓글"+replycnt+"개 모두보기</p>"+ tmp+tmp12)
-
-
-                        });
-
-
-
-                    /*
-                    for (var i = 0; i < data.length; i++) {
-                        var tt = data[i].REPLY.split('|');
-                         document.write(tmp1);   // o
-                         document.write(tmp2);   // o
-                         document.write(tmp4 +  data[i].USER_ID+"</p>");
-                         document.write(tmp3);
-                         document.write(tmp5);
-                         document.write(tmp6);
-                         //document.write(tmp4 +  data[i].USER_ID);
-                         document.write(tmp7);
-                         document.write(tmp8 + "<strong>" +data[i].USER_ID +"</strong>" +  "&nbsp" + data[i].BOARD_CONTENT);
-                         //document.write(tmp9 + data[i].BOARD_CONTENT + '<br>');
-                         var replycnt;
-
-                         if (data[i].REPLY == 0){
-                           replycnt = 0
-                         }
-                         else{
-                            replycnt = tt.length
-                         }
-
-                         document.write(tmp10 + "댓글"+replycnt+"개 모두보기</p>");
-                         //
-                         //alert(data[i].REPLY); //xxnly^어디예요|mydaily^팔로우 합니당
-                         //alert(tt[0]);  //xxnly^어디예요
-                         //alert(tt[1]);  // mydaily^팔로우 합니당
-
-                         var ttt;
-                         for(var j in tt) {
-                            ttt = tt[j].toString().split('^'); //ttt[0] 작성자 , ttt[1] 댓글내용  ttt[0] = xxnly ttt[1] = 어디예요
-                            //document.write(tmp13);
-                            if (ttt[0] != "") { //작성자가 존재 = 댓글이 있다
-                                document.write(tmp14+ '<b>' + ttt[0] + '</b>' + '&nbsp' + ttt[1] + '</p>');
-                            }
-                         }
-
-                         document.write(tmp12);
-                         document.write("</div>");
-
-
-                    }
-                    */
-
+                      });
                 },
 
                 // [에러 확인 부분]
